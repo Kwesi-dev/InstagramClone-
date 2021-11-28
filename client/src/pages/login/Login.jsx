@@ -21,7 +21,9 @@ const Login = () => {
                             <input type="password" placeholder="password"/>
                             <button className="loginBtn">Log In</button>
                         </form>
-                        <span className="or">OR</span>
+                        <div className="horizontalLine">
+                            <span className="or">OR</span>
+                        </div>
                         <div className="socialLogin">
                             <img src={facebook} alt="" />
                             <span>Log in with facebook</span>

@@ -19,8 +19,12 @@ const Sidebar = () => {
                 <table>
                     <thead>
                         <tr className="tableHeadContainer">
-                            <th className="tableHead">Suggestions for you</th>
-                            <th className="tableHead">See all</th>
+                            <th className="tableHead">
+                                <span>Suggestions for you</span>
+                            </th>
+                            <th className="tableHead">
+                                <span style={{color: "black"}}>See all</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

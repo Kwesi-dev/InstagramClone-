@@ -10,9 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Navbar active={active} setActive={setActive} postActive={postActive} setPostActive={setPostActive}/>
-      <Home setActive={setActive}/> */}
-      <Login/>
+      <Navbar active={active} setActive={setActive} postActive={postActive} setPostActive={setPostActive}/>
+      <Home setActive={setActive} />
+      {/* <Login/> */}
       {/* <Register/> */}
     </div>
   );

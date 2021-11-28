@@ -2,7 +2,7 @@
 
 .login{
     background-color: $mainColor;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@
                     display: flex;
                     flex-direction: column;
 
-                    &>input{
+                    input{
                         width: 100%;
                         padding: 7px 5px;
                         box-sizing: border-box;
@@ -76,22 +76,45 @@
                         cursor: pointer;
                     }    
                 }
-                .or{
-                    color: $textColor;
-                    font-size: 14px;
-                    margin-bottom: 30px;
-                }   
+                .horizontalLine{
+                    position: relative;
+                    margin-bottom: 20px;
+                    .or{
+                        color: $textColor;
+                        font-size: 14px;
+                    }   
+                    .or::before{
+                        content: "";
+                        width: 80px;
+                        height: 1px;
+                        background-color: lightgray;
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        left: -85px;
+                    }
+                    .or::after{
+                        content: "";
+                        width: 80px;
+                        height: 1px;
+                        background-color: lightgray;
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        right: -85px;
+                    }
+                }
                 .socialLogin{
                     margin-bottom: 20px;
                     display: flex;
                     align-items: center;
                 
-                    &>span{
+                    span{
                         color: #3877B6;
                         font-size: 14px;
                         cursor: pointer;
                     }
-                    &>img{
+                    img{
                         height: 17px;
                         width: 17px;
                         object-fit: cover;
@@ -114,7 +137,7 @@
                 justify-content: center;
                 margin-bottom: 15px;
 
-                &>span{
+                span{
                     font-size: 15px;
                 }
                 .signUp{
@@ -127,7 +150,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                &>span{
+                span{
                     font-size: 15px;
                 }
                 .rBImages{

@@ -16,7 +16,9 @@ const Register = () => {
                             <img src={facebook} alt="" />
                             <span>Log in with facebook</span>
                         </div>
-                        <span className="or">OR</span>
+                        <div className="horizontalLine">
+                            <span className="or">OR</span>
+                        </div>
                         <form>
                             <input type="text" placeholder="mobile number or email"/>
                             <input type="text" placeholder="Full name"/>

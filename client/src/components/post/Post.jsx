@@ -4,15 +4,49 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
+import { useState } from 'react';
 const Post = () => {
+    const [optionsActive, setOptionsActive] = useState(false)
+    // const [cancel, setCancel] = useState(false)
+    // console.log(cancel);
     return (
         <div className="post">
+            {optionsActive && 
+            <>
+                <div className="optionsContainer">
+                    <div className="option">
+                        <span className="red">Report</span>
+                    </div>
+                    <div className="option">
+                    <span className="red">Unfollow</span>
+                    </div>
+                    <div className="option">
+                        <span className="option">Go to post</span>
+                    </div>
+                    <div className="option">
+                        <span className="option">Share to ...</span>
+                    </div>
+                    <div className="option">
+                        <span className="option">Tagged acccouts</span>
+                    </div>
+                    <div className="option">
+                    <span className="option">Embed</span>
+                    </div>
+                    <div className="option">
+                        <span className="option">CopyLink</span>
+                    </div>
+                    <div className="option last" onClick={()=>setOptionsActive(false)}>
+                        <span className="option">Cancel</span>
+                    </div>    
+                </div>
+            </>
+            }
             <div className="postHeader">
                 <div className="postHeaderLeft">
                     <img src="https://i.ibb.co/VDm3kxP/post2.jpg" alt="" className="profilePic" />
                     <span className="postUsername">Kwesi Afriyie</span>
                 </div>
-                <div className="postHeaderRight">
+                <div className="postHeaderRight" onClick={()=>setOptionsActive(!optionsActive)}>
                     <MoreHorizIcon/>
                 </div>
             </div>

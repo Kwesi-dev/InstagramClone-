@@ -2,7 +2,7 @@
 
 .register{
     background-color: $mainColor;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,11 +72,34 @@
                         cursor: pointer;
                     }    
                 }
-                .or{
-                    color: $textColor;
-                    font-size: 14px;
+                .horizontalLine{
+                    position: relative;
                     margin-bottom: 20px;
-                }   
+                    .or{
+                        color: $textColor;
+                        font-size: 14px;
+                    }   
+                    .or::before{
+                        content: "";
+                        width: 80px;
+                        height: 1px;
+                        background-color: lightgray;
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        left: -85px;
+                    }
+                    .or::after{
+                        content: "";
+                        width: 80px;
+                        height: 1px;
+                        background-color: lightgray;
+                        display: block;
+                        position: absolute;
+                        top: 10px;
+                        right: -85px;
+                    }
+                }
                 .socialLogin{
                     margin-bottom: 20px;
                     display: flex;
