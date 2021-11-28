@@ -10,8 +10,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import AutorenewOutlinedIcon from '@mui/icons-material/AutorenewOutlined'
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined'
-
-const Navbar = ({ active, setActive }) => {
+import PostPage from '../postPage/PostPage'
+const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
     return (
         <div className="navbar">
             <div className="wrapper">
@@ -31,7 +31,7 @@ const Navbar = ({ active, setActive }) => {
                             <img src={Messanger} alt="" className="mImg"/>
                             <div className="message">2</div>
                         </div>
-                        <div className="icon">
+                        <div className="icon" onClick={()=>setPostActive(true)}>
                             <AddBoxOutlinedIcon/>
                         </div>
                         <div className="icon">
@@ -69,6 +69,11 @@ const Navbar = ({ active, setActive }) => {
                     </div>
                 </div>
             </div>
+            { postActive &&
+                <div className="postPageContainer">
+                    <PostPage postActive={postActive} setPostActive={setPostActive}/>
+                </div>
+            }
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import './register.scss'
 import Logo from '../../imgs/instagramLogo.jpg'
 import facebook from '../../imgs/facebook1.png'
-import AppStore from '../../imgs/appStore.png'
-import GoogleStore from '../../imgs/googlePlay.png'
+import AppStore from '../../imgs/appleStore.png'
+import GoogleStore from '../../imgs/googlePlayStore.png'
 
 const Register = () => {
     return (

@@ -1,16 +1,17 @@
 import './login.scss'
 import Logo from '../../imgs/instagramLogo.jpg'
 import facebook from '../../imgs/facebook.png'
-import AppStore from '../../imgs/appStore.png'
-import GoogleStore from '../../imgs/googlePlay.png'
-import InstagramPic2 from '../../imgs/instagram1.jpg'
-
+import AppStore from '../../imgs/appleStore.png'
+import GoogleStore from '../../imgs/googlePlayStore.png'
+import LoginImage1 from '../../imgs/loginImage1.jpg'
+import LoginImage2 from '../../imgs/loginImage2.png'
 const Login = () => {
     return (
         <div className="login">
             <div className="wrapper">
                 <div className="left">
-                    <img src={InstagramPic2} alt="" className="leftImage" />
+                    <img src={LoginImage2} alt="" className="leftImage" />
+                    <img src={LoginImage1} alt="" className="leftImage2" />
                 </div>
                 <div className="right">
                     <div className="rightTop">

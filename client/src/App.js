@@ -6,12 +6,14 @@ import Register from './pages/register/Register'
 import { useState } from 'react'
 function App() {
   const [active, setActive] = useState(false)
+  const [postActive, setPostActive] = useState(false)
+
   return (
     <div className="App">
-      <Navbar active={active} setActive={setActive}/>
-      <Home setActive={setActive}/>
-      {/* <Login/>
-      <Register/> */}
+      {/* <Navbar active={active} setActive={setActive} postActive={postActive} setPostActive={setPostActive}/>
+      <Home setActive={setActive}/> */}
+      <Login/>
+      {/* <Register/> */}
     </div>
   );
 }
