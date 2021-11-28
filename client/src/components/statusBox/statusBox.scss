@@ -1,0 +1,29 @@
+@import '../../gobals';
+.statusBox{
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: 22px;
+    background-color: white;
+    display: flex;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+    .statusImgContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+        .statusImg{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+        .profileName{
+            font-size: 12px;
+            font-weight: 300;
+            color: $textColor;
+            margin-top: 10px;
+        }
+    }
+}

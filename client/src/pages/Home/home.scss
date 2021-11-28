@@ -1,0 +1,22 @@
+@import "../../gobals";
+
+.home{
+    padding-top: 30px;
+    width: 100vw;
+    background-color: $mainColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .homeWrapper{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        .left{
+            flex: 3;
+        }
+        .right{
+            flex: 1.5;
+        }
+    }
+}
