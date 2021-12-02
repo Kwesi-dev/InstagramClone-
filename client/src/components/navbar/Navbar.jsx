@@ -11,7 +11,15 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import AutorenewOutlinedIcon from '@mui/icons-material/AutorenewOutlined'
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined'
 import PostPage from '../postPage/PostPage'
+import { useSelector, useDispatch } from 'react-redux'
+import { userLogout } from '../../redux/apiCalls'
 const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
+    const user = useSelector((state)=>state.user.user)
+    const dispatch = useDispatch()
+
+    const handleClick = ()=>{
+        userLogout(dispatch)
+    }
     return (
         <div className="navbar">
             <div className="wrapper">
@@ -42,7 +50,7 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
                         </div>
                     </div>
                     <div className="profile" onClick={()=>setActive(!active)}>
-                        <img src="https://i.ibb.co/TR6Qk7G/post1.jpg" alt="" className="profilePic" />
+                        <img src={user.profilePic} alt="" className="profilePic" />
                     </div>
                 </div>
             </div>
@@ -64,7 +72,7 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
                         <AutorenewOutlinedIcon  className="cardIcon"/>
                         <span>Switch Account</span>
                     </div>
-                    <div className="profileInfoCardItem logout">
+                    <div className="profileInfoCardItem logout" onClick={handleClick}>
                         <span>Logout</span>
                     </div>
                 </div>

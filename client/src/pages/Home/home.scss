@@ -1,13 +1,18 @@
 @import "../../gobals";
 
 .home{
-    padding-top: 30px;
     width: 100%;
+    height: 100%;
     background-color: $mainColor;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    .homeNav{
+        width: 100%;
+        margin-bottom: 30px;
+    }
     .homeWrapper{
         width: 70%;
         height: 100%;

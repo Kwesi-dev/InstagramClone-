@@ -12,12 +12,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-right: 10px;
+        margin-right: 15px;
+        cursor: pointer;
         .statusImg{
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            object-fit: contain;
+            object-fit: cover;
         }
         .profileName{
             font-size: 12px;

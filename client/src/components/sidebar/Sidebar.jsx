@@ -1,14 +1,17 @@
 import './sidebar.scss'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+    const user = useSelector((state)=>state.user.user)
+    const users = useSelector((state)=>state.users.users)
     return (
         <div className="sidebar">
             <div className="sidebarTop">
                 <div className="sidebarTopLeft">
-                    <img src="https://i.ibb.co/TR6Qk7G/post1.jpg" alt="" className="sidebarProfilePic" />
+                    <img src={user.profilePic} alt="" className="sidebarProfilePic" />
                     <div className="sidebarTopLeftUser">
-                        <span className="sidebarUsernameTop">kwesidev</span>
-                        <span className="sidebarUsername" style={{textTransform: "uppercase"}}>kwesidev</span>
+                        <span className="sidebarUsernameTop">{user.username}</span>
+                        <span className="sidebarUsername" style={{textTransform: "uppercase"}}>{user.username}</span>
                     </div>
                 </div>
                 <div className="sidebarTopRight">
@@ -28,54 +31,24 @@ const Sidebar = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div className="sidebarUsers">
-                                    <div className="sidebarUsersLeft">
-                                        <img src="https://i.ibb.co/TR6Qk7G/post1.jpg" alt="" className="sidebarUsersImg"/>
-                                        <div className="sidebarUsersLeftSpans">
-                                            <span >Daniel</span>
-                                            <span className="span2">Follows You</span>
+                        {users.map((user)=>
+                            <tr key={user._id}>
+                                <td>
+                                    <div className="sidebarUsers">
+                                        <div className="sidebarUsersLeft">
+                                            <img src={user.profilePic} alt="" className="sidebarUsersImg"/>
+                                            <div className="sidebarUsersLeftSpans">
+                                                <span >{user.username}</span>
+                                                <span className="span2">Follows You</span>
+                                            </div>
+                                        </div>
+                                        <div className="sidebarUsersRight">
+                                            <button className="followBtn">Follow</button>
                                         </div>
                                     </div>
-                                    <div className="sidebarUsersRight">
-                                        <button className="followBtn">Follow</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="sidebarUsers">
-                                    <div className="sidebarUsersLeft">
-                                        <img src="https://i.ibb.co/TR6Qk7G/post1.jpg" alt="" className="sidebarUsersImg"/>
-                                        <div className="sidebarUsersLeftSpans">
-                                            <span >Daniel</span>
-                                            <span className="span2">Follows You</span>
-                                        </div>
-                                    </div>
-                                    <div className="sidebarUsersRight">
-                                        <button className="followBtn">Follow</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="sidebarUsers">
-                                    <div className="sidebarUsersLeft">
-                                        <img src="https://i.ibb.co/TR6Qk7G/post1.jpg" alt="" className="sidebarUsersImg"/>
-                                        <div className="sidebarUsersLeftSpans">
-                                            <span >Daniel</span>
-                                            <span className="span2">Follows You</span>
-                                        </div>
-                                    </div>
-                                    <div className="sidebarUsersRight">
-                                        <button className="followBtn">Follow</button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>                       
+                        )}
                     </tbody>
                 </table>
 
