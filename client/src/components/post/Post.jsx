@@ -5,6 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import { useState } from 'react';
+import { publicFolder } from '../../requestMethods'
 const Post = ({post}) => {
     const [optionsActive, setOptionsActive] = useState(false)
     // const [cancel, setCancel] = useState(false)
@@ -50,7 +51,7 @@ const Post = ({post}) => {
                     <MoreHorizIcon/>
                 </div>
             </div>
-            <img src={post.image} alt="" className="postImage" />
+            <img src={publicFolder + post.image} alt="" className="postImage" />
             <div className="postFooter">
                 <div className="postFooterTop">
                     <div className="pfooterTopLeft">

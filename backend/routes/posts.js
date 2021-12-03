@@ -5,7 +5,7 @@ const verifyToken = require('./verifyToken')
 const router = express.Router()
 //create a post
 router.post('/', verifyToken,  async (req, res)=>{
-    if(req.user.id){
+    if(req.user.id || req.user.isAdmin){
         const post = new Post(req.body)
         try{
             const savedPost = await post.save()
@@ -61,8 +61,6 @@ router.get('/find/:id', async (req, res)=>{
             res.status(402).json(err)
         }
 })
-
-
 
 //find new posts
 router.get('/', async(req, res)=>{

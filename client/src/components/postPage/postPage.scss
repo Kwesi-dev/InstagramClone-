@@ -4,6 +4,7 @@
     height: 100%;
     background-color: #252525;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -65,9 +66,11 @@
             align-content: center;
             justify-content: space-between;
 
-            span{
+            .postBtn{
                 color: #0095F6;
                 cursor: pointer;
+                background-color: white;
+                border: none;
             }
             .backIcon{
                 cursor: pointer;
@@ -75,18 +78,35 @@
         }
         .postPageBottom{
             .toPostImage{
-                width: 50%;
-                height: 50%;
+                width: 100%;
+                height: 60%;
                 object-fit: contain;
             }
             .postComment{
                 border: none;
                 padding: 10px;
                 border-bottom: 1px solid lightgray;
-                width: 80%;
+                width: 95%;
                 box-sizing: border-box;
+                margin-bottom: 20px;
             }
         }
+    }
+    .postSuccess{
+        background-color: white;
+        padding: 7px 10px;
+        color: #0095F6;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .postError{
+        background-color: white;
+        padding: 7px 10px;
+        color: red;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 10px;
     }
 }
 .close{
