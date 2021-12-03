@@ -13,6 +13,7 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import PostPage from '../postPage/PostPage'
 import { useSelector, useDispatch } from 'react-redux'
 import { userLogout } from '../../redux/apiCalls'
+import { Link } from 'react-router-dom'
 const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
     const user = useSelector((state)=>state.user.user)
     const dispatch = useDispatch()
@@ -32,9 +33,11 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
                 </div>
                 <div className="right">
                     <div className="icons">
-                        <div className="icon">
-                            <HomeIcon/>
-                        </div>
+                        <Link to="/" style={{color: "inherit"}}>
+                            <div className="icon">
+                                <HomeIcon/>
+                            </div>
+                        </Link>
                         <div className="icon">
                             <img src={Messanger} alt="" className="mImg"/>
                             <div className="message">2</div>
@@ -56,10 +59,12 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
             </div>
             <div className={ active ? "profileInfoCard active": "profileInfoCard"}>
                 <div className="profileInfoCardWrapper">
-                    <div className="profileInfoCardItem">
-                        <AccountCircleOutlinedIcon  className="cardIcon"/>
-                        <span>Profile</span>
-                    </div>
+                    <Link to={`/${user.username}`} style={{textDecoration: "none", color: "inherit"}}>
+                        <div className="profileInfoCardItem">
+                            <AccountCircleOutlinedIcon  className="cardIcon"/>
+                            <span>Profile</span>
+                        </div>
+                    </Link>
                     <div className="profileInfoCardItem">
                         <BookmarkBorderOutlinedIcon className="cardIcon"/>
                         <span>Saved</span>

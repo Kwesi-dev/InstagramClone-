@@ -5,11 +5,13 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import { useState } from 'react';
+import { useSelector } from 'react-redux'
 import { publicFolder } from '../../requestMethods'
 const Post = ({post}) => {
     const [optionsActive, setOptionsActive] = useState(false)
     // const [cancel, setCancel] = useState(false)
     // console.log(cancel);
+    const user = useSelector(state=>state.user.user)
     return (
         <div className="post">
             {optionsActive && 
@@ -44,7 +46,7 @@ const Post = ({post}) => {
             }
             <div className="postHeader">
                 <div className="postHeaderLeft">
-                    <img src="https://i.ibb.co/VDm3kxP/post2.jpg" alt="" className="profilePic" />
+                    <img src={user.profilePic} alt="" className="profilePic" />
                     <span className="postUsername">{post.username}</span>
                 </div>
                 <div className="postHeaderRight" onClick={()=>setOptionsActive(!optionsActive)}>
