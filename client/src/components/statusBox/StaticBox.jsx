@@ -1,15 +1,18 @@
 import './statusBox.scss'
-import { useSelector } from 'react-redux' 
+import { useSelector } from 'react-redux'
+
 const StaticBox = () => {
     const users = useSelector((state)=>state.users.users)
     return (
         <div className="statusBox">
-            {users.map((user)=>
-                <div className="statusImgContainer" key={user._id}>
-                    <img src={user.profilePic} alt="" className="statusImg"/>
-                    <span className="profileName">{user.username}</span>
+               <div className="statusBoxWrapper">
+                    {users.map((user)=> 
+                        <div className="statusImgContainer" key={user._id}>
+                            <img src={user.profilePic} alt="" className="statusImg"/>
+                            <span className="profileName">{user.username}</span>
+                        </div>
+                    )}
                 </div>
-            )}
         </div>
     )
 }

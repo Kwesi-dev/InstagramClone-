@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import {axiosInstance} from '../requestMethods'
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async ()=>{
-    const res = await axiosInstance.get('/posts')
+    const res = await axiosInstance.get('/posts/?new=true')
     return res.data
 })
 
