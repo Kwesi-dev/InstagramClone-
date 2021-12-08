@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/User')
 const verifyToken = require('./verifyToken')
+const CryptoJs = require('crypto-js')
 
 const router = express.Router()
 
@@ -21,6 +22,9 @@ router.delete('/:id', verifyToken, async (req, res)=>{
 //update a user
 router.put('/:id', verifyToken, async (req, res)=>{
     if(req.params.id === req.user.id){
+        if(req.body.password){
+            return CryptoJS.AES.encrypt(req.body.password, process.env.secret_key).toString()
+        }
         try{
             const updatedPost = await User.findByIdAndUpdate(req.params.id, {$set: req.body})
             res.status(200).json(updatedPost)
