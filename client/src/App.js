@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={user ? <Home active={active} setActive={setActive} postActive={postActive} setPostActive={setPostActive}/> : <Navigate to="/login"/>}/>
           <Route path="/login" element={!user ? <Login/> : <Navigate to="/"/>}/>
           <Route path="/register" element={!user ? <Register/> : <Navigate to="/"/>}/>
-          <Route path={`/${user.username}`} element={user ? <Profile/> : <Navigate to="/login"/>}/>
+          <Route path={user && `/${user.username}`} element={user ? <Profile/> : <Navigate to="/login"/>}/>
         </Routes>
       </div>
     </Router>

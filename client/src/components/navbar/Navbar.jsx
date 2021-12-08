@@ -52,7 +52,7 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
                             <FavoriteBorderOutlinedIcon/>
                         </div>
                     </div>
-                    <div className="profile" onClick={()=>setActive(!active)}>
+                    <div className="navProfile" onClick={()=>setActive(!active)}>
                         <img src={user.profilePic} alt="" className="profilePic" />
                     </div>
                 </div>
