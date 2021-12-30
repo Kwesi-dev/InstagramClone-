@@ -51,7 +51,15 @@
                     width: 80%;
                     display: flex;
                     flex-direction: column;
+                    position: relative;
 
+                    .visibleIcon{
+                        position: absolute;
+                        top: 45px;
+                        right: 10px;
+                        font-size: 18px;
+                        cursor: pointer;
+                    }
                     input{
                         width: 100%;
                         padding: 7px 5px;
@@ -142,6 +150,7 @@
                 justify-content: center;
                 margin-bottom: 15px;
 
+
                 span{
                     font-size: 15px;
                 }
@@ -150,6 +159,7 @@
                     cursor: pointer;
                     margin-left: 5px;
                 }
+                
             }  
             .rightBottom{
                 display: flex;

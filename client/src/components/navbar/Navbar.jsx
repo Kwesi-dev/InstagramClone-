@@ -1,6 +1,7 @@
 import './navbar.scss'
 import Logo from '../../imgs/instagramLogo.jpg'
 import Messanger from '../../imgs/messanger.png'
+import Avatar from '../../imgs/avatar.jpg'
 import SearchIcon from '@mui/icons-material/Search'
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
@@ -53,7 +54,7 @@ const Navbar = ({ active, setActive,  postActive, setPostActive }) => {
                         </div>
                     </div>
                     <div className="navProfile" onClick={()=>setActive(!active)}>
-                        <img src={user.profilePic} alt="" className="profilePic" />
+                        <img src={user.profilePic || Avatar} alt="" className="profilePic" />
                     </div>
                 </div>
             </div>

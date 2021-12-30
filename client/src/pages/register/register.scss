@@ -47,8 +47,16 @@
                     width: 80%;
                     display: flex;
                     flex-direction: column;
+                    position: relative;
 
-                    &>input{
+                    .visibleIcon{
+                        position: absolute;
+                        bottom: 75px;
+                        right: 18px;
+                        font-size: 18px;
+                        cursor: pointer;
+                    }
+                    input{
                         width: 100%;
                         padding: 10px;
                         box-sizing: border-box;
@@ -71,6 +79,11 @@
                         margin-bottom: 18px;
                         cursor: pointer;
                     }    
+                }
+                .error{
+                    font-size: 16px;
+                    color: red;
+                    margin-bottom: 10px;
                 }
                 .horizontalLine{
                     position: relative;

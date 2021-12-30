@@ -1,6 +1,6 @@
 import './sidebar.scss'
 import { useSelector } from 'react-redux'
-
+import Avatar from '../../imgs/avatar.jpg'
 const Sidebar = () => {
     const user = useSelector((state)=>state.user.user)
     const users = useSelector((state)=>state.users.users)
@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebarTop">
                 <div className="sidebarTopLeft">
-                    <img src={user.profilePic} alt="" className="sidebarProfilePic" />
+                    <img src={user.profilePic || Avatar} alt="" className="sidebarProfilePic" />
                     <div className="sidebarTopLeftUser">
                         <span className="sidebarUsernameTop">{user.username}</span>
                         <span className="sidebarUsername" style={{textTransform: "uppercase"}}>{user.username}</span>
@@ -36,7 +36,7 @@ const Sidebar = () => {
                                 <td>
                                     <div className="sidebarUsers">
                                         <div className="sidebarUsersLeft">
-                                            <img src={user.profilePic} alt="" className="sidebarUsersImg"/>
+                                            <img src={user.profilePic || Avatar} alt="" className="sidebarUsersImg"/>
                                             <div className="sidebarUsersLeftSpans">
                                                 <span >{user.username}</span>
                                                 <span className="span2">Follows You</span>
