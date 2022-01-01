@@ -1,17 +1,29 @@
 import './post.scss'
+import Avatar from '../../imgs/avatar.jpg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
-import { useState } from 'react';
-import { useSelector } from 'react-redux'
-import { publicFolder } from '../../requestMethods'
+import { useState, useEffect } from 'react';
+import { axiosInstance, publicFolder } from '../../requestMethods'
+import { format } from 'timeago.js'
 const Post = ({post}) => {
     const [optionsActive, setOptionsActive] = useState(false)
+    const [postUser, setPostUser] = useState("")
     // const [cancel, setCancel] = useState(false)
     // console.log(cancel);
-    const user = useSelector(state=>state.user.user)
+    const userId = post.userId
+
+    useEffect(()=>{
+        const fetchPostUser = async()=>{
+            try{
+                const res = await axiosInstance.get("/users/find/" + userId)
+                setPostUser(res.data)
+            }catch{}
+        }
+        fetchPostUser()
+    },[userId])
     return (
         <div className="post">
             {optionsActive && 
@@ -46,8 +58,8 @@ const Post = ({post}) => {
             }
             <div className="postHeader">
                 <div className="postHeaderLeft">
-                    <img src={user.profilePic} alt="" className="profilePic" />
-                    <span className="postUsername">{post.username}</span>
+                    <img src={postUser.profilePic || Avatar} alt="" className="profilePic" />
+                    <span className="postUsername">{postUser.username}</span>
                 </div>
                 <div className="postHeaderRight" onClick={()=>setOptionsActive(!optionsActive)}>
                     <MoreHorizIcon/>
@@ -68,7 +80,7 @@ const Post = ({post}) => {
                 <div className="postInfo">
                     <span style={{fontSize: "15px"}}>156.8k likes</span>
                     <p style={{marginTop: "20px", fontSize: "15px", marginBottom: "10px"}}>{post.desc}</p>
-                    <span style={{color: "#8e8e8e", fontSize: "12px"}}>12 hours ago</span>
+                    <span style={{color: "#8e8e8e", fontSize: "12px"}}>{format(post.createdAt)}</span>
                 </div>
                 <div className="comment">
                     <div className="cleft">

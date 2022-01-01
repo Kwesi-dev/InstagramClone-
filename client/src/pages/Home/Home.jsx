@@ -14,7 +14,7 @@ const Home = ({ setActive, postActive, setPostActive, active }) => {
     useEffect(()=>{
         dispatch(fetchUsers())
     },[dispatch])
-    
+    console.log(posts)
 
     useEffect(()=>{
         dispatch(fetchPosts())

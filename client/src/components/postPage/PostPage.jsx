@@ -12,11 +12,10 @@ const PostPage = ({postActive, setPostActive}) => {
     const [error, setError] = useState(false)
 
     const user = useSelector(state=>state.user.user)
-
     const handleClick = async (e)=>{
         e.preventDefault()
         const newPost = {
-            username: user.username,
+            userId: user._id,
             desc: comment,
         }
         if(file){
