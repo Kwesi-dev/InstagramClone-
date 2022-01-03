@@ -21,6 +21,25 @@
         display: flex;
         .left{
             flex: 3;
+            .igIcon{
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                animation: loading 1s ease-in-out infinite;
+                transition: all 1s ease;
+                position: absolute;
+                top: 300px;
+                left: 500px;
+                
+                @keyframes loading {
+                    from{
+                        transform: scale(1);
+                    }
+                    to{
+                        transform: scale(1.5);
+                    }
+                }
+            }
         }
         .right{
             flex: 1.5;

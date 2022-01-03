@@ -1,5 +1,6 @@
 import './profile.scss'
 import SettingsIcon from '@mui/icons-material/Settings'
+import Avatar from '../../imgs/avatar.jpg'
 import Navbar from '../../components/navbar/Navbar'
 import { useSelector } from 'react-redux'
 import GridOnIcon from '@mui/icons-material/GridOn'
@@ -20,11 +21,11 @@ const Profile = () => {
                 <div className="profileWrapper">
                     <div className="profileTop">
                         <div className="pTLeft">
-                            <img src={user.profilePic} alt="" className="ptImg"/>
+                            <img src={user.profilePic || Avatar} alt="" className="ptImg"/>
                         </div>
                         <div className="pTRight">
                             <div className="pTRightTop">
-                                <span className="profileName">KwesiDev</span>
+                                <span className="profileName">{user.username}</span>
                                 <button className="edit">Edit Profile</button>
                                 <SettingsIcon className="settingIcon"/>
                             </div>
@@ -43,7 +44,7 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="pTRightBottom">
-                                <span className="profileNameBottom">KwesiDev</span>
+                                <span className="profileNameBottom">{user.username}</span>
                                 <span className="profileBio">I am a software dev</span>
                             </div>
                             <div className="profileButtons">

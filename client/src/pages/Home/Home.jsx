@@ -1,5 +1,6 @@
 import './home.scss'
 import StatusBox from '../../components/statusBox/StaticBox'
+import InstagramIcon from '../../imgs/instagramIcon.png'
 import Post from '../../components/post/Post'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
@@ -11,10 +12,12 @@ import { fetchPosts } from '../../redux/postRedux'
 const Home = ({ setActive, postActive, setPostActive, active }) => {    
     const dispatch = useDispatch()
     const posts = useSelector(state=>state.posts).posts
+
+    const isFetching  = useSelector(state=>state.posts.isFetching)
+
     useEffect(()=>{
         dispatch(fetchUsers())
     },[dispatch])
-    console.log(posts)
 
     useEffect(()=>{
         dispatch(fetchPosts())
@@ -27,6 +30,9 @@ const Home = ({ setActive, postActive, setPostActive, active }) => {
             <div className="homeWrapper" onClick={()=>setActive(false)}>
                 <div className="left">
                     <StatusBox/>
+                    {isFetching && 
+                        <img src={InstagramIcon} alt="" className="igIcon"/>
+                    }
                     {posts.map((post)=>
                         <Post key={post._id}post={post}/>
                     )}

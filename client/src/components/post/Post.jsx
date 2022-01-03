@@ -14,15 +14,20 @@ const Post = ({post}) => {
     // const [cancel, setCancel] = useState(false)
     // console.log(cancel);
     const userId = post.userId
-
     useEffect(()=>{
+        let isMounted = true
         const fetchPostUser = async()=>{
             try{
                 const res = await axiosInstance.get("/users/find/" + userId)
-                setPostUser(res.data)
+                if(isMounted){
+                    setPostUser(res.data)
+                }
             }catch{}
         }
         fetchPostUser()
+        return ()=>{
+            isMounted = false
+        }
     },[userId])
     return (
         <div className="post">
